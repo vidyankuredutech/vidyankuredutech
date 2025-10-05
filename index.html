@@ -1,285 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vidyankur EduTech – Full Stack Course</title>
-  <link rel="icon" href="favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vidyankur EduTech</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(120deg, #f0f4f8, #ffffff);
-      color: #333;
-    }
-    header {
-      background: linear-gradient(to right, #083344, #005f73);
-      color: #fff;
-      padding: 50px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    header img {
-      height: 90px;
-      border-radius: 12px;
-      margin-right: 20px;
-    }
-    .headerSubDiv {
-      max-width: 600px;
-    }
-    header h1 {
-      margin: 10px 0 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.95;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 960px;
-      margin: auto;
-      line-height: 1.7;
-    }
-    h2, h3 {
-      color: #005f73;
-    }
-    .highlight {
-      background: #e0f7fa;
-      border-left: 6px solid #00796b;
-      border-radius: 8px;
-      padding: 30px;
-      margin-bottom: 40px;
-      transition: background 0.3s ease;
-    }
-    .highlight:hover {
-      background: #d0f4f7;
-    }
-    ul li {
-      margin: 12px 0;
-      font-size: 1.05rem;
-    }
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      background-color: #00796b;
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 10px;
-      margin-top: 20px;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background-color: #004d40;
-    }
+    body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; background: #f4f6f9; margin:0; }
+    .navbar { background: rgba(0,43,128,0.95); backdrop-filter: blur(10px); box-shadow: 0 3px 15px rgba(0,0,0,0.2); }
+    .navbar-brand, .nav-link { color: #fff !important; }
+    .nav-link:hover { color: #ffb703 !important; }
 
-    .slider-section {
-      position: relative;
-      margin: 50px auto;
-      max-width: 960px;
-      overflow: hidden;
-      background: #f1f8f9;
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-    .slides {
-      display: flex;
-      transition: transform 0.6s ease-in-out;
-    }
-    .slide {
-      min-width: 100%;
-      box-sizing: border-box;
-      /* padding: 30px; */
-      text-align: center;
-    }
-    .slide img {
-      width: 100%;
-      max-height: 460px;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-    }
-    .slide h3 {
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-    }
-    .slide p {
-      font-size: 1.15rem;
-      line-height: 1.6;
-    }
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: transparent;
-      color: white;
-      border: none;
-      padding: 12px 18px;
-      cursor: pointer;
-      font-size: 20px;
-      z-index: 2;
-      border-radius: 50%;
-    }
-    .prev { left: 15px; }
-    .next { right: 15px; }
+    /* Hero Section */
+    #home { display:flex; flex-direction: column; align-items:center; justify-content:center; min-height:100vh; background:linear-gradient(135deg, #002b80, #004aad); color:white; padding:80px 20px; text-align:center; }
+    @media(min-width:992px){ #home { flex-direction:row; text-align:left; } }
+    #home h1 { font-size:2.5rem; font-weight:700; margin-bottom:20px; line-height:1.2; }
+    @media(min-width:768px){ #home h1{ font-size:3rem; } }
+    #home p { font-size:1rem; margin-bottom:25px; }
+    .hero-btn { background: rgba(255,183,3,0.9); color:#002b80; font-weight:600; border-radius:50px; padding:10px 25px; margin:5px; transition:0.3s; backdrop-filter: blur(5px); display:inline-block; }
+    .hero-btn:hover { background: rgba(255,183,3,1); color:#002b80; }
+    #home img.hero-img { max-width:100%; width:350px; border-radius:20px; box-shadow:0 15px 40px rgba(0,0,0,0.3); margin-top:30px; }
+    @media(min-width:992px){ #home img.hero-img{ margin-top:0; width:450px; } }
 
-    .contact p, .contact a {
-      font-size: 1.05rem;
-    }
-    .contact a {
-      color: #00796b;
-      text-decoration: none;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      background-color: #083344;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      font-size: 0.95rem;
-      margin-top: 50px;
-    }
+    /* Courses */
+    #courses { padding:80px 20px; }
+    .course-card { background: linear-gradient(145deg,#ffffff,#f1f5f9); border-radius:20px; box-shadow:0 12px 25px rgba(0,0,0,0.12); transition: transform 0.4s, box-shadow 0.4s; padding:20px; position:relative; overflow:hidden; height:100%; }
+    .course-card:hover { transform: translateY(-8px); box-shadow:0 20px 35px rgba(0,0,0,0.18); }
+    .badge-custom { background:#ffb703; color:#002b80; padding:5px 12px; border-radius:50px; font-weight:600; margin-bottom:15px; display:inline-block; }
+    .course-card ul li { margin-bottom:10px; }
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        padding: 30px 20px;
-        text-align: center;
-      }
-      header img {
-        margin-right: 0;
-        margin-bottom: 15px;
-      }
-      .slide img {
-        max-height: 280px;
-      }
-    }
+    /* About Section */
+    #about { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:80px 20px; gap:30px; background:#e9f0ff; border-radius:25px; margin:40px auto; text-align:center; }
+    #about img { max-width:100%; width:300px; border-radius:20px; box-shadow:0 12px 25px rgba(0,0,0,0.1); }
+    #about .about-text { max-width:600px; }
+    @media(min-width:992px){ #about{ flex-direction:row; text-align:left; } #about img{ width:400px; } }
+
+    /* Stats */
+    #stats-feedback { padding:30px 20px; background:#bbccff; margin:40px auto; }
+    .counter { font-size:2rem; font-weight:700; }
+    @media(min-width:768px){ .counter{ font-size:2.5rem; } }
+
+    /* Contact */
+    #contact { padding:10px 10px; }
+    #contact .contact-info { background:#fff; padding:30px; border-radius:25px; box-shadow:0 15px 30px rgba(0,0,0,0.12); margin-bottom:40px; text-align:center; }
+    #contact .contact-info h5 { font-weight:600; margin-bottom:10px; color:#002b80; }
+    #contact .contact-info p { margin:0; font-size:1rem; }
+
+    /* Footer */
+    footer { background: linear-gradient(135deg, #002b80, #004aad); color:white; text-align:center; padding:25px 0; font-weight:500; }
+
+    /* WhatsApp */
+    .whatsapp-btn { position:fixed; bottom:20px; right:20px; background:rgba(37,211,102,0.85); padding:12px 20px; border-radius:50px; font-weight:bold; color:white; text-decoration:none; box-shadow:0 8px 20px rgba(0,0,0,0.25); backdrop-filter: blur(6px); transition:0.3s; z-index:999; }
+    .whatsapp-btn:hover { background: rgba(37,211,102,1); }
+    #logoImg{ border-radius:100%; width:24px; margin-right:8px; }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="Vidyankur EduTech Logo" />
-    <div class="headerSubDiv">
-      <h1>Vidyankur EduTech</h1>
-      <p>Rooted in Konkan, Committed to Excellence</p>
-    </div>
-  </header>
-
-  <section>
-    <h2>🚀 Full Stack Developer Course</h2>
-    <p>
-      Become an industry-ready web developer in 8 months. Taught in Marathi + English, this offline course is perfect for college students to build full-scale web applications.
-    </p>
-
-    <!-- 🎞️ Image Slider -->
-    <div class="slider-section">
-      <button class="nav-btn prev" onclick="changePptSlide(-1)">❮</button>
-      <div class="slides" id="pptSlider">
-        <div class="slide"><img src="s1.png" alt="Slide 1"></div>
-        <div class="slide"><img src="s2.png" alt="Slide 2"></div>
-        <div class="slide"><img src="s3.png" alt="Slide 3"></div> 
-        <div class="slide"><img src="s11.png" alt="Slide 11"></div>
-        <div class="slide"><img src="s12.png" alt="Slide 12"></div>
-        <div class="slide"><img src="s13.png" alt="Slide 13"></div>
-        <div class="slide"><img src="s14.png" alt="Slide 14"></div>
-        <div class="slide"><img src="s15.png" alt="Slide 15"></div>
-        <div class="slide"><img src="s16.png" alt="Slide 16"></div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home"><img src="logo.jpeg" id="logoImg" alt="logo">Vidyankur EduTech</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#stats-feedback">Impact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
       </div>
-      <button class="nav-btn next" onclick="changePptSlide(1)">❯</button>
     </div>
+  </nav>
 
-    <div class="highlight">
-      <h3>💡 Course Highlights</h3>
-      <ul>
-        <li>HTML, CSS, JavaScript, Angular, Java, Spring Boot, SQL</li>
-        <li>Real-world projects + Final Capstone</li>
-        <li>Git, Deployment, Mock Interviews</li>
-        <li>Offline Mode – Interactive Sessions</li>
-        <li>Language: Marathi + English</li>
-      </ul>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScVy5XdzXjyOn1fWilnyrZOyYpdCkq8eFnx6v22rAHaym3DKw/viewform?usp=dialog" target="_blank" class="btn">Join Now – Limited Seats</a>
+  <!-- Hero -->
+  <section id="home" data-aos="fade-up">
+    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+      <div class="hero-text" data-aos="fade-right">
+        <h1 style="margin-top: 30px;">Vidyankur EduTech</h1>
+        <p>Rooted in Konkan, Committed to Excellence</p>
+        <a href="#courses" class="hero-btn">Explore Courses</a>
+        <a href="#contact" class="hero-btn">Register Free Demo</a>
+      </div>
+      <img src="banner11.jpeg" alt="Hero Image" class="hero-img" data-aos="fade-left">
     </div>
-
-    <h3>📘 Curriculum Overview</h3>
-    <ul>
-      <li>Month 1-2: HTML, CSS, Semantic Web</li>
-      <li>Month 3-4: JavaScript + DOM Projects</li>
-      <li>Month 5-6: Angular with TypeScript</li>
-      <li>Month 7: Java + Spring Boot APIs</li>
-      <li>Month 8: Deployment, Soft Skills & Final Project</li>
-    </ul>
   </section>
 
-  <!-- 📋 Text Info Slider -->
-  <div class="slider-section">
-    <button class="nav-btn prev" onclick="changeSlide(-1)">❮</button>
-    <div class="slides" id="slider">
-      <div class="slide"><h3>✨ Why Join This Course?</h3><p>Learn from industry experts with hands-on training. Practical knowledge to help you stand out.</p></div>
-      <div class="slide"><h3>🎯 Career-Focused Curriculum</h3><p>From basics to advanced: HTML, Angular, Spring Boot, and more. Designed to land you a job.</p></div>
-      <div class="slide"><h3>🧠 Bilingual Teaching</h3><p>Concepts explained in both Marathi + English to improve comprehension and confidence.</p></div>
-      <div class="slide"><h3>🤝 Personal Mentorship</h3><p>One-on-one support, mock interviews, and guidance through every stage of the course.</p></div>
+  <!-- About -->
+  <section id="about">
+    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+      <img src="aboutUs.jpg" alt="About Us" data-aos="zoom-in">
+      <div class="about-text" data-aos="fade-left"> 
+        <h5>"Vidyankur EduTech equips students with industry-ready IT skills through hands-on projects and expert guidance. Our career-focused programs bridge the gap between learning and employment, empowering students to confidently step into professional roles and succeed in the ever-evolving tech industry."</h5>
+      </div>
     </div>
-    <button class="nav-btn next" onclick="changeSlide(1)">❯</button>
-  </div>
+  </section>
 
-  <!-- 📞 Contact Info -->
-  <section>
-    <div class="contact">
-      <h3>📞 Contact Us <br> For more inquiry</h3>
-      <p>  
-        <strong>Vidyankur EduTech</strong><br/>
-        📞 <a href="tel:9284527158">9284527158</a><br/>
-        📧 <a href="mailto:vidyankuredutech@gmail.com">vidyankuredutech@gmail.com</a>
+  <!-- Courses -->
+  <section id="courses">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-5" data-aos="fade-up">Career-Ready IT Training</h2>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="course-card h-100">
+            <h4>Full Stack Developer</h4>
+            <span class="badge-custom">Offline + Online</span>
+            <ul class="list-unstyled text-start">
+              <li>📘 8 Months | Industry Ready Training</li>
+              <li>💻 HTML, CSS, JS, Angular, Java, Spring Boot, SQL</li>
+              <li>🧩 4 Mini Projects + Final Project</li>
+              <li>🎯 3 Mock Interviews</li>
+              <li>🗂 GitHub & Hosting</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary w-100 mt-2">Enroll Now</a>
+          </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="course-card h-100">
+            <h4>Python Programming</h4>
+            <span class="badge-custom">Online</span>
+            <ul class="list-unstyled text-start">
+              <li>🐍 Beginner to Advanced Python</li>
+              <li>🧠 Projects + Hands-on Coding</li>
+              <li>🗂 GitHub & Hosting</li>
+              <li>💼 Career-Oriented Training</li>
+              <li>🎯 Mock Interviews</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary w-100 mt-2">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats & Feedback -->
+  <section id="stats-feedback">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-5" data-aos="fade-up">Our Impact</h2>
+      <div class="row g-4 mb-5">
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="display-5 fw-bold counter" data-target="2">0</h3>
+          <p>Students Enrolled</p>
+        </div>
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="display-5 fw-bold counter" data-target="0">0</h3>
+          <p>Courses Completed</p>
+        </div>
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="display-5 fw-bold counter" data-target="10">0</h3>
+          <p>Positive Feedback</p>
+        </div>
+      </div> 
+    </div>
+  </section>
+
+  <!-- Contact Section with Google Form -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-info" data-aos="fade-up">
+        <h2 class="text-center fw-bold mb-4">Contact Us</h2>
+        <h5>Phone</h5>
+        <p>📞 +91 9284527158</p>
+        <h5>Email</h5>
+        <p>✉️ info@vidyankuredutech.com</p>
+      </div> 
+    </div>
+  </section>
+  
+ <!-- Stats & Feedback -->
+  <section id="stats-feedback">
+    <div class="container text-center"> 
+      <h2 class="fw-bold mb-4" data-aos="fade-up">Why This Course Matters</h2>
+      <p class="mb-5" data-aos="fade-up" style="margin:auto; font-size:1rem; line-height:1.6; max-width:800px;">
+        This course equips students with in-demand skills and real-world experience through projects and expert guidance, preparing them to confidently enter IT roles and advance their careers.
       </p>
     </div>
   </section>
+  
+  <!-- Contact Section with Google Form -->
+  <section id="contact">
+    <div class="container"> 
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8" data-aos="fade-up">
+          <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScVy5XdzXjyOn1fWilnyrZOyYpdCkq8eFnx6v22rAHaym3DKw/viewform?embedded=true" width="100%" height="1800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Vidyankur EduTech. All rights reserved.
+    <p>© 2025 Vidyankur EduTech | All Rights Reserved | 📍 Sawarde</p>
+    <p>www.vidyankuredutech.com</p>
   </footer>
 
+  <!-- WhatsApp -->
+  <a href="https://wa.me/919284527158?text=Hello%20Vidyankur%20EduTech" class="whatsapp-btn" target="_blank">💬 Click for Enquiry</a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    // Main Text Slider
-    let currentSlide = 0;
-    const slides = document.getElementById("slider");
-    const totalSlides = slides.children.length;
+    AOS.init({ duration:1000, once:true });
 
-    function showSlide(index) {
-      if (index < 0) index = totalSlides - 1;
-      if (index >= totalSlides) index = 0;
-      currentSlide = index;
-      slides.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    function changeSlide(direction) {
-      showSlide(currentSlide + direction);
-    }
-    setInterval(() => changeSlide(1), 6000);
-
-    // Image (PPT) Slider
-    let pptIndex = 0;
-    const pptSlider = document.getElementById("pptSlider");
-    const pptTotal = pptSlider.children.length;
-
-    function showPptSlide(index) {
-      if (index < 0) index = pptTotal - 1;
-      if (index >= pptTotal) index = 0;
-      pptIndex = index;
-      pptSlider.style.transform = `translateX(-${pptIndex * 100}%)`;
-    }
-
-    function changePptSlide(direction) {
-      showPptSlide(pptIndex + direction);
-    }
-    setInterval(() => changePptSlide(1), 6000);
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 200;
+        if(count < target){
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 10);
+        } else {
+          counter.innerText = target;
+        }
+      }
+      updateCount();
+    });
   </script>
 </body>
 </html>
